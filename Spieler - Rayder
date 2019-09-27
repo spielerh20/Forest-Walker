@@ -1,0 +1,43 @@
+#include <kipr/botball.h>
+int l_bump= 3;
+int r_bump = 0;
+int l_motor = 3;
+int r_motor = 2;
+int forward = 100;
+int backwards = 100;
+int pause = 1200;
+
+
+int main()
+{
+    while(1){//as long as the log test is true...
+       forward();
+        if (digital(3)==1){
+               backward();
+               right();
+            }
+        if (digital(6) == 1){
+            backward();
+              right();
+            }
+    }  
+}
+  //FUNCTION DEFINITIONS
+    
+void forward(){
+ motor (l_motor,forwards);
+ motor(r_motor,forwards);
+}
+
+void backward(){
+    motor (l_motor,backwards); 
+    motor (r_motor,backwards);
+    msleep(pause);
+    ao();
+}
+  void right(){
+    motor( l_motor,forwards);
+    motor( r_motor,backwards);
+    msleep(pause);
+  ao();
+  }
